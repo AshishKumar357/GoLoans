@@ -1,0 +1,2 @@
+rootProject.name='GoLoans'
+include ':app'

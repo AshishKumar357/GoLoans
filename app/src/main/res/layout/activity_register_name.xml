@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/nextBtnN"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="100dp"
+        android:background="#49FF08"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/previousbtnN"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:background="#F41111"
+        android:text="@string/previous"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inpFN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:ems="15"
+        android:hint="@string/enter_first_name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/previousbtnN"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/inpMN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:ems="15"
+        android:hint="@string/middle_name_optional"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/inpFN"
+        app:layout_constraintTop_toBottomOf="@+id/inpFN"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/inpLN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:ems="15"
+        android:hint="@string/last_name_optional"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/inpMN"
+        app:layout_constraintTop_toBottomOf="@+id/inpMN"
+        android:autofillHints="" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
