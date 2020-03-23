@@ -1,7 +1,5 @@
 package com.project.goloans;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,9 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class RegisterEmailPhno extends AppCompatActivity {
@@ -42,19 +39,15 @@ public class RegisterEmailPhno extends AppCompatActivity {
 
                 if ("".equals(newmail)){
                     Toast.makeText(RegisterEmailPhno.this, "Email Field is Compulsory ", Toast.LENGTH_SHORT).show();
-                }
-                else   if (!isEmailValid(newmail)){
+                } else if (!isEmailValid(newmail)) {
                     Toast.makeText(RegisterEmailPhno.this, "Email Field is badly formatted ", Toast.LENGTH_SHORT).show();
                     inpEMail.setText("");
-                }
-                else if ("".equals(newphno)){
+                } else if ("".equals(newphno)) {
                     Toast.makeText(RegisterEmailPhno.this, "Phone Number Field is Compulsory ", Toast.LENGTH_SHORT).show();
-                }
-                else if (!isValidMobile(newphno)){
+                } else if (!isValidMobile(newphno)) {
                     Toast.makeText(RegisterEmailPhno.this, "Phone Number Field is badly formatted ", Toast.LENGTH_SHORT).show();
                     inpPhno.setText("");
-                }
-                else {
+                } else {
 //                    SharedPreferences.Editor editor = sp.edit();
 //                    editor.putString(newUser + newpwd + "Data", newUser + "\n" + newmail + "\n" + newphno);
 //                    editor.putString(newUser + "a", newUser);
@@ -67,6 +60,16 @@ public class RegisterEmailPhno extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+            }
+        });
+
+        previousbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterEmailPhno.this, RegisterPwd.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
     }

@@ -8,7 +8,7 @@ import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-class BlogActivity extends AppCompatActivity {
+public class BlogActivity extends AppCompatActivity {
 
     private WebView webView;
 

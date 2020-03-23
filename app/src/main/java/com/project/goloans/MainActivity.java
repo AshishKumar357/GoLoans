@@ -1,7 +1,5 @@
 package com.project.goloans;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -10,6 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
         loginbtn=findViewById(R.id.Loginbtn);
         signbtn=findViewById(R.id.signbtn);
@@ -52,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.apply();
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    if(sp.getString(user + "a", "Guest")!= "Guest" && sp.getString(pwd+ "pwd", "Guest")!= "Guest"){
+                    if (!Objects.equals(sp.getString(user + "a", "Guest"), "Guest") && !Objects.equals(sp.getString(pwd + "pwd", "Guest"), "Guest")) {
                         Intent intent=new Intent(MainActivity.this,Home.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
